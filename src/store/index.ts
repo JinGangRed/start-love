@@ -1,7 +1,11 @@
-import { createStore } from "vuex";
+import { createLogger, createStore } from "vuex";
+import { app } from "@/store/app";
 const isDebug = process.env.NODE_ENV !== "production";
 
 export default createStore({
-  modules: {},
+  modules: {
+    app,
+  },
   strict: isDebug,
+  plugins: isDebug ? [createLogger()] : [],
 });
