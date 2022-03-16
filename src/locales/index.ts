@@ -11,6 +11,8 @@ function setI18nLanguage(lang: string): string {
   return lang;
 }
 
+const modules = import.meta.glob(`./lang/*.ts`);
+
 export function loadLanguageAsync(lang: string = defaultLang): Promise<string> {
   return new Promise<string>((resolve) => {
     const currentLocale = i18n.global;
@@ -20,7 +22,7 @@ export function loadLanguageAsync(lang: string = defaultLang): Promise<string> {
     if (loadedLanguages.value.includes(lang)) {
       return resolve(setI18nLanguage(lang));
     }
-    return import(`./lang/${lang}`).then((result) => {
+    return modules[`./lang/${lang}`]().then((result) => {
       const loadedLang = result.default;
       currentLocale.setLocaleMessage(lang, loadedLang);
       loadedLanguages.value.push(lang);

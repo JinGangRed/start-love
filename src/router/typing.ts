@@ -9,6 +9,8 @@ import {
 export interface MenuRouteMeta {
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
+  title?: string;
+  authority?: string[];
   icon?: string | VNodeChild | JSX.Element;
 }
 
