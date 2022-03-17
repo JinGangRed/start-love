@@ -7,6 +7,7 @@ import { useStore } from "vuex";
 import localStorage from "@/utils/local-storage";
 import { STORAGE_LANG_KEY } from "./store/typing";
 import { SET_LANG } from "@/store/app/typing";
+import HelloWorld from "./components/HelloWorld.vue";
 
 const store = useStore();
 const lang = localStorage.get(STORAGE_LANG_KEY, "en-US");

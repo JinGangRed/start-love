@@ -2,9 +2,7 @@
   <div id="user-layout" class="user-layout-wrapper"></div>
 </template>
 
-<script setup lang="ts">
-Hellor;
-</script>
+<script setup lang="ts"></script>
 
 <style lang="less" scoped>
 .user-layout-wrapper {
