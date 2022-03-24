@@ -2,7 +2,7 @@ import { defineConfig, loadEnv, UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { getThemeVariables } from "ant-design-vue/dist/theme";
 import * as path from "path";
-
+console.log(getThemeVariables());
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: UserConfig) => {
   const root = process.cwd();
@@ -36,9 +36,13 @@ export default defineConfig(({ mode }: UserConfig) => {
       preprocessorOptions: {
         less: {
           modifyVars: {
-            ...getThemeVariables(),
+            ...getThemeVariables({ dark: true }),
           },
           javascriptEnabled: true,
+          additionalData: `@import "${path.resolve(
+            __dirname,
+            "src/assets/styles/variables.less"
+          )}";`,
         },
       },
     },

@@ -5,6 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 import locale from "./locales";
 import store from "./store";
+import "./assets/styles/variables.less";
 import "./app.less";
 const app = createApp(App);
 app
