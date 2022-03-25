@@ -1,5 +1,5 @@
 <template>
-  <a-layout-sider>Sider</a-layout-sider>
+  <a-layout-sider theme="light">Sider</a-layout-sider>
 </template>
 
 <script setup lang="ts"></script>
