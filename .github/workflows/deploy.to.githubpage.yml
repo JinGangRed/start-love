@@ -12,21 +12,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: "npm"
 
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      
+
       - name: Install and Build
         run: |
           npm Install
           npm run build
-      
+
       - name: Deploy the project to Github Page
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          branch: gh-pages
+          branch: demo
           folder: dist
-
