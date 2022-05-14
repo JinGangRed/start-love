@@ -1,0 +1,32 @@
+name: "Deploy project to Github Page"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: NodeJs Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      
+      - name: Install and Build
+        run: |
+          npm Install
+          npm run build
+      
+      - name: Deploy the project to Github Page
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: dist
+
