@@ -10,7 +10,7 @@ export default defineConfig(({ mode }: UserConfig) => {
   const env = loadEnv(mode, root);
 
   return {
-    base: env.VITE_APP_PUBLIC_PATH,
+    base: "/start_love/",
     define: {
       "process.env": {
         //   VUE_APP_API_HOST: JSON.stringify(env.VUE_APP_API_HOST),
@@ -27,6 +27,7 @@ export default defineConfig(({ mode }: UserConfig) => {
         "@": path.join(__dirname, "./src"),
       },
     },
+    
     optimizeDeps: {
       include: [
         "ant-design-vue/es/locale/en_US",
