@@ -1,16 +1,16 @@
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import { defineConfig, loadEnv, UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import { getThemeVariables } from "ant-design-vue/dist/theme";
 import * as path from "path";
+import { defineConfig, loadEnv, UserConfig } from "vite";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: UserConfig) => {
   const root = process.cwd();
   const env = loadEnv(mode, root);
 
   return {
-    base: "/start_love/",
+    base: "/start-love/",
     define: {
       "process.env": {
         //   VUE_APP_API_HOST: JSON.stringify(env.VUE_APP_API_HOST),
@@ -27,7 +27,7 @@ export default defineConfig(({ mode }: UserConfig) => {
         "@": path.join(__dirname, "./src"),
       },
     },
-    
+
     optimizeDeps: {
       include: [
         "ant-design-vue/es/locale/en_US",
